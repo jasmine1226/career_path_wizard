@@ -1,7 +1,11 @@
 class Api::V1::CareerPathsController < ApplicationController
   def index
-    @career_paths = CareerPath.all
+    career_paths = CareerPath.all
+    render json: CareerPathSerializer.new(career_paths)
+  end
 
-    render json: @career_paths, status: 200
+  def show
+    career_path = CareerPath.find(params[:id])
+    render json: CareerPathSerializer.new(career_path)
   end
 end

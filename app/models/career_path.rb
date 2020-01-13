@@ -1,3 +1,3 @@
 class CareerPath < ApplicationRecord
-  has_many :courses
+  has_many :career_paths
 end
