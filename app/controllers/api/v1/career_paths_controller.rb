@@ -8,4 +8,5 @@ class Api::V1::CareerPathsController < ApplicationController
     career_path = CareerPath.find(params[:id])
     render json: CareerPathSerializer.new(career_path)
   end
+
 end
