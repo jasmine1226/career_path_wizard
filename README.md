@@ -1,4 +1,4 @@
-# CAREER PATH WIZARD
+# Career Path Wizard
 
 This is a demo app that allows authorized users to create career paths for different career tracks, which provides a one-stop shop for employees for internal trainings from various internal learning sites.
 
@@ -16,7 +16,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jasmine1226/flight_deals. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jasmine1226/career_path_wizard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
