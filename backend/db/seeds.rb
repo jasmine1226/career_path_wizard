@@ -8,11 +8,11 @@
 
 CareerPath.create (
   [
-    {career_track: "Product Manager"},
-    {career_track: "Program Manager"},
-    {career_track: "Solution Architect"},
-    {career_track: "Software Engineer"},
-    {career_track: "Software Test Engineer"}
+    {name: "Product Manager"},
+    {name: "Program Manager"},
+    {name: "Solution Architect"},
+    {name: "Software Engineer"},
+    {name: "Software Test Engineer"}
   ]
 )
 

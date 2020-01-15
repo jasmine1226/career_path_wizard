@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_051029) do
+ActiveRecord::Schema.define(version: 2020_01_15_044240) do
+
+  create_table "career_path_courses", force: :cascade do |t|
+    t.integer "career_path_id"
+    t.integer "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["career_path_id"], name: "index_career_path_courses_on_career_path_id"
+    t.index ["course_id"], name: "index_career_path_courses_on_course_id"
+  end
 
   create_table "career_paths", force: :cascade do |t|
-    t.string "career_track"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
