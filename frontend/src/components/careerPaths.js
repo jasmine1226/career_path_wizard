@@ -2,7 +2,12 @@ class CareerPaths {
   constructor() {
     this.careerPaths = [];
     this.adapter = new CareerPathAdapter();
+    this.initBindingsAndEventListeners();
     this.fetchAndLoadCareerPath();
+  }
+
+  initBindingsAndEventListeners() {
+    this.careerPathContainer = document.getElementById("career-path-container");
   }
 
   fetchAndLoadCareerPath() {
@@ -17,9 +22,8 @@ class CareerPaths {
   }
 
   render() {
-    const list = document.getElementById("career-path-container");
-    list.innerHTML = this.careerPaths
-      .map(path => `<li class="list-group-item">${path.name}</li>`)
+    this.careerPathContainer.innerHTML = this.careerPaths
+      .map(careerPath => careerPath.renderLi())
       .join(" ");
   }
 }
