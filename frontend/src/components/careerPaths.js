@@ -9,28 +9,21 @@ class CareerPaths {
     const careerPaths = this.adapter
       .getCareerPaths()
       .then(json => {
-        return json.data.forEach(careerPath => {
-          this.careerPaths.push({
-            id: careerPath.id,
-            career_track: careerPath.attributes.career_track
-          });
-        });
+        json.data.forEach(careerPath =>
+          this.careerPaths.push(new CareerPath(careerPath))
+        );
+        console.log(this.careerPaths);
       })
       .then(() => this.render());
   }
 
   render() {
-    const careerPathContainer = document.getElementById(
-      "career-path-container"
-    );
-    const list = document.createElement("ul");
-    list.classList.add("list-group");
+    const list = document.getElementById("career-path-container");
     this.careerPaths.forEach(careerPath => {
       const item = document.createElement("li");
-      item.innerHTML = careerPath.career_track;
+      item.innerHTML = careerPath.name;
       item.classList.add("list-group-item");
       list.appendChild(item);
     });
-    careerPathContainer.appendChild(list);
   }
 }
