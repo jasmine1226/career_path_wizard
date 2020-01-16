@@ -11,6 +11,8 @@ class CareerPath {
 
   renderCourses() {
     var courseContainer = document.getElementById("course-container");
-    courseContainer.innerHTML = this.courses.map(course => course.render());
+    courseContainer.innerHTML = this.courses
+      .map(course => course.render())
+      .join(" ");
   }
 }
