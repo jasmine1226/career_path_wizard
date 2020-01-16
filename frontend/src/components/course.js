@@ -1,4 +1,4 @@
-class CareerPath {
+class Course {
   constructor(courseJSON) {
     this.id = courseJSON.id;
     this.title = courseJSON.attributes.title;
