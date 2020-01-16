@@ -10,4 +10,8 @@ class CareerPathAdapter {
   getCareerPath(id) {
     return fetch(this.baseURL + "/" + id).then(res => res.json());
   }
+
+  getCourses(id) {
+    return fetch(this.baseURL + "/" + id + "/courses").then(res => res.json());
+  }
 }
