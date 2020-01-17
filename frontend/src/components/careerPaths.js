@@ -8,12 +8,8 @@ class CareerPaths {
 
   initBindingsAndEventListeners() {
     this.careerPathContainer = document.getElementById("career-path-container");
-    this.careerPathContainer.addEventListener("onmouseover", function(event) {
-      console.log(event.target);
-      // add active class to li
-    });
-    this.careerPathContainer.addEventListener("click", e =>
-      this.fetchAndLoadCourses(e)
+    this.careerPathContainer.addEventListener("click", event =>
+      this.fetchAndLoadCourses(event)
     );
   }
 
@@ -28,8 +24,8 @@ class CareerPaths {
       .then(() => this.render());
   }
 
-  fetchAndLoadCourses(e) {
-    const careerPathId = e.target.dataset.id;
+  fetchAndLoadCourses(event) {
+    const careerPathId = event.target.dataset.id;
     const careerPath = this.careerPaths.find(
       careerPath => careerPath.id === careerPathId
     );
