@@ -12,4 +12,14 @@ class Api::V1::CoursesController < ApplicationController
     course = Course.find(params[:id])
     render json: CourseSerializer.new(course)
   end
+
+  def create
+    course = Course.create(course_params)
+    render json: CourseSerializer.new(course)
+  end
+
+  private
+  def course_params
+    params.require(:course).permit(:body)
+  end
 end

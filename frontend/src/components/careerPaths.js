@@ -62,6 +62,8 @@ class CareerPaths {
       title: this.courseTitle.value,
       url: this.courseUrl.value
     };
-    this.adapter.createCourse(course);
+    this.adapter.createCourse(course).then(course => {
+      console.log(course);
+    });
   }
 }

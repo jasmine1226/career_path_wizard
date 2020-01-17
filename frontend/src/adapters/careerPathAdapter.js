@@ -17,5 +17,13 @@ class CareerPathAdapter {
     );
   }
 
-  createCourse() {}
+  createCourse(course) {
+    return fetch(this.baseURL + "/courses", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(course)
+    }).then(res => res.json());
+  }
 }
