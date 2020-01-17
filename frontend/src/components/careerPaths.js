@@ -8,9 +8,15 @@ class CareerPaths {
 
   initBindingsAndEventListeners() {
     this.careerPathContainer = document.getElementById("career-path-container");
-    this.careerPathContainer.addEventListener("click", event =>
-      this.fetchAndLoadCourses(event)
-    );
+    this.courseForm = document.getElementById("new-course-form");
+    this.courseTitle = document.getElementById("course-title");
+    this.courseUrl = document.getElementById("course-url");
+    this.careerPathContainer.addEventListener("click", event => {
+      this.careerPathId = event.target.dataset.id;
+      this.selectCarerPath(this.careerPathId);
+      this.fetchAndLoadCourses(this.careerPathId);
+    });
+    this.courseForm.addEventListener("submit", this.createCourse.bind(this));
   }
 
   fetchAndLoadCareerPaths() {
@@ -24,8 +30,12 @@ class CareerPaths {
       .then(() => this.render());
   }
 
-  fetchAndLoadCourses(event) {
-    const careerPathId = event.target.dataset.id;
+  selectCarerPath(careerPathId) {
+    const id = document.getElementById("career-path-id");
+    id.value = careerPathId;
+  }
+
+  fetchAndLoadCourses(careerPathId) {
     const careerPath = this.careerPaths.find(
       careerPath => careerPath.id === careerPathId
     );
@@ -43,5 +53,15 @@ class CareerPaths {
     this.careerPathContainer.innerHTML = this.careerPaths
       .map(careerPath => careerPath.renderLi())
       .join(" ");
+  }
+
+  createCourse(e) {
+    e.preventDefault();
+    const course = {
+      id: this.careerPathId,
+      title: this.courseTitle.value,
+      url: this.courseUrl.value
+    };
+    this.adapter.createCourse(course);
   }
 }

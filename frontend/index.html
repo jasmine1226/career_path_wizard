@@ -24,12 +24,13 @@
           <ul id="career-path-container" class="list-group"></ul>
         </nav>
         <div class="main col-sm-8">
+          <h2>Add a new course</h2>
           <form id="new-course-form">
-            <h2>Add a new course</h2>
-            <label>Title: </label>
-            <input type="text" />
-            <label>Videl URL: </label>
-            <input type="text" />
+            <input type="hidden" id="career-path-id" />
+            <label name="course-title">Title: </label>
+            <input id="course-title" name="course-title" type="text" />
+            <label name="course-url">Videl URL: </label>
+            <input id="course-url" name="course-url" type="text" />
             <input type="submit" />
           </form>
           <h2 class="pt-5">Courses</h2>
