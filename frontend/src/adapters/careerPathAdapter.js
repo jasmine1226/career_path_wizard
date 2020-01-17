@@ -18,6 +18,7 @@ class CareerPathAdapter {
   }
 
   createCourse(course) {
+    console.log(course);
     return fetch(this.baseURL + "/courses", {
       method: "POST",
       headers: {

@@ -58,9 +58,9 @@ class CareerPaths {
   createCourse(e) {
     e.preventDefault();
     const course = {
-      id: this.careerPathId,
       title: this.courseTitle.value,
-      url: this.courseUrl.value
+      url: this.courseUrl.value,
+      career_path_id: this.careerPathId
     };
     this.adapter.createCourse(course).then(course => {
       console.log(course);
