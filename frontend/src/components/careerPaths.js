@@ -62,8 +62,14 @@ class CareerPaths {
       url: this.courseUrl.value,
       career_path_id: this.careerPathId
     };
-    this.adapter.createCourse(course).then(course => {
-      console.log(course);
-    });
+    const careerPath = this.careerPaths.find(
+      careerPath => careerPath.id === course.career_path_id
+    );
+    this.adapter
+      .createCourse(course)
+      .then(c => {
+        careerPath.courses.push(new Course(c.data));
+      })
+      .then(() => careerPath.renderCourses());
   }
 }
