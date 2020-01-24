@@ -35093,3 +35093,267 @@ Processing by Api::V1::CoursesController#index as */*
 Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.8ms | Allocations: 6902)
 
 
+Started GET "/api/v1/career_paths" for ::1 at 2020-01-23 23:53:15 -0800
+Processing by Api::V1::CareerPathsController#index as */*
+  [1m[36mCareerPath Load (0.3ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths"[0m
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 2]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 3]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 4]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 5]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.9ms | Allocations: 7396)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-23 23:53:16 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.1ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 6902)
+
+
+Started POST "/api/v1/courses" for ::1 at 2020-01-23 23:53:23 -0800
+Processing by Api::V1::CoursesController#create as */*
+  Parameters: {"title"=>"", "url"=>"", "career_path_id"=>"1", "course"=>{"title"=>"", "url"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[36mCourse Create (2.3ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", ""], ["url", ""], ["created_at", "2020-01-24 07:53:23.129147"], ["updated_at", "2020-01-24 07:53:23.129147"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 32]]
+  ↳ app/controllers/api/v1/courses_controller.rb:19:in `create'
+Completed 200 OK in 8ms (Views: 1.6ms | ActiveRecord: 3.1ms | Allocations: 3699)
+
+
+Started GET "/api/v1/career_paths" for ::1 at 2020-01-24 00:06:13 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::CareerPathsController#index as */*
+  [1m[36mCareerPath Load (0.3ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths"[0m
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 2]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 3]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 4]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 5]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.9ms | Allocations: 7419)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-24 00:06:15 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.2ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.9ms | Allocations: 6936)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-24 00:06:22 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.2ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.8ms | Allocations: 6902)
+
+
+Started POST "/api/v1/courses" for ::1 at 2020-01-24 00:07:47 -0800
+Started POST "/api/v1/courses" for ::1 at 2020-01-24 00:07:47 -0800
+Processing by Api::V1::CoursesController#create as */*
+  Parameters: {"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4", "course"=>{"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Amazon Student Programs: Product Management"], ["url", "https://www.youtube.com/embed/68Gh9TzemM4"], ["created_at", "2020-01-24 08:07:47.437029"], ["updated_at", "2020-01-24 08:07:47.437029"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+Processing by Api::V1::CoursesController#create as */*
+  Parameters: {"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4", "course"=>{"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4"}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 33]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:19:in `create'
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+Completed 200 OK in 11ms (Views: 3.7ms | ActiveRecord: 1.3ms | Allocations: 5723)
+
+
+  [1m[36mCourse Create (1.0ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Amazon Student Programs: Product Management"], ["url", "https://www.youtube.com/embed/68Gh9TzemM4"], ["created_at", "2020-01-24 08:07:47.445645"], ["updated_at", "2020-01-24 08:07:47.445645"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 34]]
+  ↳ app/controllers/api/v1/courses_controller.rb:19:in `create'
+Completed 200 OK in 10ms (Views: 2.2ms | ActiveRecord: 2.8ms | Allocations: 4441)
+
+
+Started GET "/api/v1/career_paths" for ::1 at 2020-01-24 00:07:59 -0800
+Processing by Api::V1::CareerPathsController#index as */*
+  [1m[36mCareerPath Load (0.3ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths"[0m
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 2]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 3]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 4]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 5]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 1.5ms | Allocations: 7415)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-24 00:08:02 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.2ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.8ms | Allocations: 6930)
+
+
+Started POST "/api/v1/courses" for ::1 at 2020-01-24 00:09:58 -0800
+Processing by Api::V1::CoursesController#create as */*
+  Parameters: {"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4", "course"=>{"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[36mCourse Create (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Amazon Student Programs: Product Management"], ["url", "https://www.youtube.com/embed/68Gh9TzemM4"], ["created_at", "2020-01-24 08:09:58.323826"], ["updated_at", "2020-01-24 08:09:58.323826"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 35]]
+  ↳ app/controllers/api/v1/courses_controller.rb:19:in `create'
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 1.9ms | Allocations: 3385)
+
+
+Started GET "/api/v1/career_paths" for ::1 at 2020-01-24 00:10:16 -0800
+Processing by Api::V1::CareerPathsController#index as */*
+  [1m[36mCareerPath Load (0.3ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths"[0m
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 2]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 3]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 4]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "courses"."id" FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 5]]
+  ↳ app/controllers/api/v1/career_paths_controller.rb:4:in `index'
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 1.1ms | Allocations: 7397)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-24 00:10:18 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.2ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.8ms | Allocations: 6902)
+
+
+Started GET "/api/v1/career_paths/1/courses" for ::1 at 2020-01-24 00:10:20 -0800
+Processing by Api::V1::CoursesController#index as */*
+  Parameters: {"career_path_id"=>"1"}
+  [1m[36mCareerPath Load (0.2ms)[0m  [1m[34mSELECT "career_paths".* FROM "career_paths" WHERE "career_paths"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:4:in `index'
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "career_path_courses" ON "courses"."id" = "career_path_courses"."course_id" WHERE "career_path_courses"."career_path_id" = ?[0m  [["career_path_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 3]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 7]]
+  ↳ app/controllers/api/v1/courses_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.7ms | Allocations: 6902)
+
+
+Started POST "/api/v1/courses" for ::1 at 2020-01-24 00:10:30 -0800
+Started POST "/api/v1/courses" for ::1 at 2020-01-24 00:10:30 -0800
+Processing by Api::V1::CoursesController#create as */*
+Processing by Api::V1::CoursesController#create as */*
+  Parameters: {"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4", "course"=>{"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4"}}
+  Parameters: {"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4", "course"=>{"title"=>"Amazon Student Programs: Product Management", "url"=>"https://www.youtube.com/embed/68Gh9TzemM4"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[36mCourse Create (0.9ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Amazon Student Programs: Product Management"], ["url", "https://www.youtube.com/embed/68Gh9TzemM4"], ["created_at", "2020-01-24 08:10:30.398127"], ["updated_at", "2020-01-24 08:10:30.398127"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "career_paths"."id" FROM "career_paths" INNER JOIN "career_path_courses" ON "career_paths"."id" = "career_path_courses"."career_path_id" WHERE "career_path_courses"."course_id" = ?[0m  [["course_id", 36]]
+  ↳ app/controllers/api/v1/courses_controller.rb:19:in `create'
+  [1m[36mCourse Create (5113.4ms)[0m  [1m[32mINSERT INTO "courses" ("title", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Amazon Student Programs: Product Management"], ["url", "https://www.youtube.com/embed/68Gh9TzemM4"], ["created_at", "2020-01-24 08:10:30.398965"], ["updated_at", "2020-01-24 08:10:30.398965"]]
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/courses_controller.rb:18:in `create'
+Completed 200 OK in 5128ms (Views: 3.5ms | ActiveRecord: 3.0ms | Allocations: 5909)
+
+
+Completed 500 Internal Server Error in 5131ms (ActiveRecord: 5113.6ms | Allocations: 7824)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked):
+  
+app/controllers/api/v1/courses_controller.rb:18:in `create'
