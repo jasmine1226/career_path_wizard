@@ -13,8 +13,7 @@ class CareerPaths {
     this.courseUrl = document.getElementById("course-url");
     this.careerPathContainer.addEventListener("click", event => {
       this.careerPathId = event.target.dataset.id;
-      this.selectCarerPath(this.careerPathId);
-      this.fetchAndLoadCourses(this.careerPathId);
+      this.renderCourses(this.careerPathId);
     });
     this.courseForm.addEventListener("submit", this.createCourse.bind(this));
   }
@@ -30,23 +29,16 @@ class CareerPaths {
       .then(() => this.render());
   }
 
-  selectCarerPath(careerPathId) {
+  selectCareerPath(careerPathId) {
     const id = document.getElementById("career-path-id");
     id.value = careerPathId;
   }
 
-  fetchAndLoadCourses(careerPathId) {
+  renderCourses(careerPathId) {
     const careerPath = this.careerPaths.find(
       careerPath => careerPath.id === careerPathId
     );
-    const courses = this.adapter
-      .getCourses(careerPathId)
-      .then(json => {
-        json.data.map(course => {
-          careerPath.courses.push(new Course(course));
-        });
-      })
-      .then(() => careerPath.renderCourses());
+    var courses = new Courses(careerPath);
   }
 
   render() {
