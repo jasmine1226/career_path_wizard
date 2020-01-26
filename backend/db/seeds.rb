@@ -18,12 +18,12 @@ CareerPath.create (
 
 Course.create (
   [
-    {title: "Amazon Leadership Principles", url: "https://www.youtube.com/embed/B-xdfQv3I1k"},
-    {title: "AWS In 10 Minutes", url: "https://www.youtube.com/embed/r4YIdn2eTm4"},
-    {title: "Introduction to Scrum", url: "https://www.youtube.com/embed/9TycLR0TqFA"},
-    {title: "Software Testing", url: "https://www.youtube.com/embed/goaZTAzsLMk"},
-    {title: "Introduction to Project Management", url: "https://www.youtube.com/embed/BOU1YP5NZVA"},
-    {title: "The Amazon Playbook for Becoming a Rockstar PM", url: "https://www.youtube.com/embed/HT9k2510CeU"},
-    {title: "How to Think Product Analytics in PM Interviews", url: "https://www.youtube.com/embed/k87SPgq-me4"}
+    {title: "Amazon Leadership Principles", url: "https://www.youtube.com/watch?v=B-xdfQv3I1k"},
+    {title: "AWS In 10 Minutes", url: "https://www.youtube.com/watch?v=r4YIdn2eTm4"},
+    {title: "Introduction to Scrum", url: "https://www.youtube.com/watch?v=9TycLR0TqFA"},
+    {title: "Software Testing", url: "https://www.youtube.com/watch?v=goaZTAzsLMk"},
+    {title: "Introduction to Project Management", url: "https://www.youtube.com/watch?v=BOU1YP5NZVA"},
+    {title: "The Amazon Playbook for Becoming a Rockstar PM", url: "https://www.youtube.com/watch?v=HT9k2510CeU"},
+    {title: "How to Think Product Analytics in PM Interviews", url: "https://www.youtube.com/watch?v=k87SPgq-me4"}
   ]
 )
