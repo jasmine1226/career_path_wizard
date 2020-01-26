@@ -28,8 +28,7 @@ class Courses {
     e.preventDefault();
     const course = {
       title: this.courseTitle.value,
-      url: this.courseUrl.value,
-      career_path_id: this.careerPath.id
+      url: this.courseUrl.value
     };
     this.adapter
       .createCourse(course)

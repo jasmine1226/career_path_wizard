@@ -15,12 +15,13 @@ class Api::V1::CoursesController < ApplicationController
 
   def create
     # if params[:career_path_id] do this else do that; use nested form
-    course = Course.create(course_params)
+    career_path = CareerPath.find(params[:career_path_id])
+    course = career_path.courses.create(course_params)
     render json: CourseSerializer.new(course)
   end
 
   private
   def course_params
-    params.require(:course).permit(:title, :url, :career_path_id)
+    params.require(:course).permit(:title, :url)
   end
 end
