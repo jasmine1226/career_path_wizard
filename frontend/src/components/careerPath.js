@@ -9,10 +9,7 @@ class CareerPath {
     return `<li data-id=${this.id} class="list-group-item">${this.name}</li>`;
   }
 
-  renderCourses() {
-    var courseContainer = document.getElementById("course-container");
-    courseContainer.innerHTML = this.courses
-      .map(course => course.render())
-      .join(" ");
+  loadCourses() {
+    var courses = new Courses(this);
   }
 }
