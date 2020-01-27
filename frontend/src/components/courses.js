@@ -35,7 +35,12 @@ class Courses {
     this.adapter
       .createCourse(course)
       .then(c => {
-        this.careerPath.courses.push(new Course(c.data));
+        var course = new Course(c.data);
+        if (this.careerPath.courses.find(c => c.url === course.url)) {
+          alert("There is a duplicate course! This course will not be added.");
+        } else {
+          this.careerPath.courses.push(course);
+        }
       })
       .then(() => this.renderCourses());
   }
