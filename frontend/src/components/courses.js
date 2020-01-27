@@ -36,7 +36,11 @@ class Courses {
       .createCourse(course)
       .then(c => {
         var course = new Course(c.data);
-        if (this.careerPath.courses.find(c => c.url === course.url)) {
+        if (
+          this.careerPath.courses.find(
+            c => c.url === course.url && c.title === course.title
+          )
+        ) {
           alert("There is a duplicate course! This course will not be added.");
         } else {
           this.careerPath.courses.push(course);
