@@ -6,7 +6,7 @@ class CareerPath {
   }
 
   renderLi() {
-    return `<li data-id=${this.id} class="list-group-item">${this.name}</li>`;
+    return `<li data-id=${this.id} class="list-group-item btn btn-default">${this.name}</li>`;
   }
 
   loadCourses() {

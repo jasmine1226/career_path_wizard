@@ -14,7 +14,6 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def create
-    # if params[:career_path_id] do this else do that; use nested form
     career_path = CareerPath.find(params[:career_path_id])
     course = career_path.courses.find_or_create_by(course_params)
     render json: CourseSerializer.new(course)
