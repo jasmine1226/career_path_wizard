@@ -27,3 +27,23 @@ Course.create (
     {title: "How to Think Product Analytics in PM Interviews", url: "https://www.youtube.com/watch?v=k87SPgq-me4"}
   ]
 )
+
+CareerPathCourse.create(
+  [
+    {career_path_id: 1, course_id: 1},
+    {career_path_id: 1, course_id: 3},
+    {career_path_id: 1, course_id: 7},
+    {career_path_id: 2, course_id: 1},
+    {career_path_id: 2, course_id: 5},
+    {career_path_id: 2, course_id: 6},
+    {career_path_id: 3, course_id: 1},
+    {career_path_id: 3, course_id: 2},
+    {career_path_id: 3, course_id: 3},
+    {career_path_id: 4, course_id: 1},
+    {career_path_id: 4, course_id: 2},
+    {career_path_id: 4, course_id: 3},
+    {career_path_id: 5, course_id: 1},
+    {career_path_id: 5, course_id: 2},
+    {career_path_id: 5, course_id: 4}
+  ]
+)

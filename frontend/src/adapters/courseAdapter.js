@@ -10,7 +10,12 @@ class CourseAdapter {
     );
   }
 
-  createCourse(course) {
+  createCourse(courseInfo) {
+    var course = {
+      title: courseInfo.title,
+      url: courseInfo.url,
+      career_path_id: this.careerPathId
+    };
     return fetch(this.baseURL + this.careerPathId + "/courses", {
       method: "POST",
       headers: {
