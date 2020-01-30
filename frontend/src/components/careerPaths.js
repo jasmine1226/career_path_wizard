@@ -24,7 +24,10 @@ class CareerPaths {
           this.careerPaths.push(new CareerPath(careerPath))
         );
       })
-      .then(() => this.render());
+      .then(() => this.render())
+      .catch(function(error) {
+        console.log(error.message);
+      });
   }
 
   render() {

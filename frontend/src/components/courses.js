@@ -23,7 +23,10 @@ class Courses {
           this.careerPath.courses.push(new Course(course));
         });
       })
-      .then(() => this.renderCourses());
+      .then(() => this.renderCourses())
+      .catch(function(error) {
+        console.log(error.message);
+      });
   }
 
   createCourse(e) {
