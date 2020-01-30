@@ -25,7 +25,7 @@ class Courses {
       })
       .then(() => this.renderCourses())
       .catch(function(error) {
-        console.log(error.message);
+        alert(error.message);
       });
   }
 

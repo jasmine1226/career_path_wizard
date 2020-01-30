@@ -26,7 +26,7 @@ class CareerPaths {
       })
       .then(() => this.render())
       .catch(function(error) {
-        console.log(error.message);
+        alert(error.message);
       });
   }
 
