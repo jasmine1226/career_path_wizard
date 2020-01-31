@@ -3,7 +3,7 @@ class Courses {
     this.careerPath = careerPath;
     this.adapter = new CourseAdapter(this.careerPath);
     this.initBindingsAndEventListeners();
-    this.fetchAndLoadCourses();
+    this.renderCourses();
   }
 
   initBindingsAndEventListeners() {
@@ -12,21 +12,6 @@ class Courses {
     this.courseUrl = document.getElementById("course-url");
     this.courseContainer = document.getElementById("course-container");
     this.courseForm.addEventListener("submit", this.createCourse.bind(this));
-  }
-
-  fetchAndLoadCourses() {
-    this.careerPath.courses = [];
-    const courses = this.adapter
-      .getCourses()
-      .then(json => {
-        json.data.map(course => {
-          this.careerPath.courses.push(new Course(course));
-        });
-      })
-      .then(() => this.renderCourses())
-      .catch(function(error) {
-        alert(error.message);
-      });
   }
 
   createCourse(e) {

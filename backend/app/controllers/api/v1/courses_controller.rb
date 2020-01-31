@@ -14,15 +14,8 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    #if params[:career_path_id]
-      career_path = CareerPath.find(params[:career_path_id])
-      course = career_path.courses.create(course_params)
-    #end
-=======
     career_path = CareerPath.find(params[:career_path_id])
     course = career_path.courses.create(course_params)
->>>>>>> errorhandler
     render json: CourseSerializer.new(course)
     rescue ActiveRecord::RecordNotFound
       render json: {}, status: :not_found
