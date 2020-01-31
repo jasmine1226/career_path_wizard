@@ -9,32 +9,25 @@ class CareerPaths {
   initBindingsAndEventListeners() {
     this.careerPathContainer = document.getElementById("career-path-container");
     this.careerPathContainer.addEventListener("click", event => {
-      this.careerPathId = event.target.dataset.id;
-      this.renderCourses(this.careerPathId);
+      var careerPath = this.careerPaths.find(
+        careerPath => careerPath.id === event.target.dataset.id
+      );
+      careerPath.loadCourses();
     });
   }
 
   fetchAndLoadCareerPaths() {
-    const careerPaths = this.adapter
+    var careerPaths = this.adapter
       .getCareerPaths()
       .then(json => {
         json.data.forEach(careerPath =>
           this.careerPaths.push(new CareerPath(careerPath))
         );
       })
-      .then(() => this.render());
-  }
-
-  selectCareerPath(careerPathId) {
-    const id = document.getElementById("career-path-id");
-    id.value = careerPathId;
-  }
-
-  renderCourses(careerPathId) {
-    const careerPath = this.careerPaths.find(
-      careerPath => careerPath.id === careerPathId
-    );
-    var courses = new Courses(careerPath);
+      .then(() => this.render())
+      .catch(function(error) {
+        alert(error.message);
+      });
   }
 
   render() {

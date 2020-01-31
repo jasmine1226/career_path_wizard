@@ -6,13 +6,10 @@ class CareerPath {
   }
 
   renderLi() {
-    return `<li data-id=${this.id} class="list-group-item">${this.name}</li>`;
+    return `<li data-id=${this.id} class="list-group-item btn btn-default">${this.name}</li>`;
   }
 
-  renderCourses() {
-    var courseContainer = document.getElementById("course-container");
-    courseContainer.innerHTML = this.courses
-      .map(course => course.render())
-      .join(" ");
+  loadCourses() {
+    var courses = new Courses(this);
   }
 }

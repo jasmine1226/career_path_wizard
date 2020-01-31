@@ -7,7 +7,9 @@ class Course {
 
   render() {
     return `
-    <p>${this.title}</p>
-    <iframe width="560" height="315" src="${this.url}" frameborder="0" allow="accelerometer; autoplay; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    <tr>
+      <td>${this.title}</td>
+      <td><a href="${this.url}">${this.url}</a></td>
+    </tr>`;
   }
 }
